@@ -87,7 +87,7 @@ export const coinRoute = new Route({
    path: "$coinId",
    loader: async ({ params }) => {
       const res = await fetch(
-         `https://api.coingecko.com/api/v3/coins/${params.coinId}`
+         `https://api.coingecko.com/api/v3/coins/${params.coinId}?localization=false&tickers=false&community_data=false&developer_data=true&sparkline=true`
       );
       const data = await res.json();
 
