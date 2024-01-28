@@ -70,16 +70,16 @@ const coinListRoute = new Route({
 export const coinsRoute = new Route({
    getParentRoute: () => coinListRoute,
    path: "/",
-   // loader: async () => {
-   //    const res = await fetch(
-   //       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=true&locale=en`
-   //    );
-   //    const data = await res.json();
+   loader: async () => {
+      const res = await fetch(
+         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=true&locale=en`
+      );
+      const data = await res.json();
 
-   //    return {
-   //       data,
-   //    };
-   // },
+      return {
+         data,
+      };
+   },
    component: Coins,
 });
 export const coinRoute = new Route({

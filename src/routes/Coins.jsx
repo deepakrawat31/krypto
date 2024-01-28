@@ -1,29 +1,14 @@
-// import { coinsRoute } from "../main";
+import { coinsRoute } from "../main";
 
 import { IconArrowRight } from "@tabler/icons-react";
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import Footer from "../components/Footer";
 
 export default function Coins() {
-   // const data = coinsRoute.useLoaderData();
-   // const coins = data.data;
-
-   const [coins, setCoins] = useState([]);
-
-   const getCoins = async () => {
-      const res = await fetch(
-         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=true&locale=en`
-      );
-      const data = await res.json();
-      setCoins(data);
-   };
-
-   useEffect(() => {
-      getCoins();
-   }, []);
+   const data = coinsRoute.useLoaderData();
+   const coins = data.data;
 
    return (
       <>

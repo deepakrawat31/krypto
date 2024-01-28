@@ -31,7 +31,7 @@ export default function Register() {
                      name="username"
                      id="username"
                      autoComplete="off"
-                     className="outline-none p-2 bg-periwink text-lg font-semibold text-night rounded-md uppercase"
+                     className="outline-none p-2 bg-periwink text-lg font-semibold text-night rounded-md uppercase focus:ring-eggshell focus:ring-2 focus:ring-offset-2"
                   />
                </label>
                <span className="capitalize font-semibold">

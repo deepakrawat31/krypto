@@ -1,7 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
 export default function Login() {
+   const [username, setUsername] = useState("");
+   const inputRef = useRef();
+
+   const submitHandler = (e) => {
+      e.preventDefault();
+      setUsername(inputRef.current.value);
+      inputRef.current.value = "";
+   };
+
    return (
       <main className="h-[calc(100dvh-62px)] bg-eggshell flex items-center justify-center p-2">
          <motion.div
@@ -20,7 +30,7 @@ export default function Login() {
                   welcome to the word of crypto!
                </span>
             </div>
-            <form action="" className="flex flex-col gap-6">
+            <form onSubmit={submitHandler} className="flex flex-col gap-6">
                <label
                   htmlFor="username"
                   className="flex flex-col gap-2 text-lg font-semibold uppercase"
@@ -31,7 +41,8 @@ export default function Login() {
                      name="username"
                      id="username"
                      autoComplete="off"
-                     className="outline-none p-2 bg-periwink text-lg font-semibold text-night rounded-md uppercase"
+                     ref={inputRef}
+                     className="outline-none p-2 bg-periwink text-lg font-semibold text-night rounded-md uppercase focus:ring-eggshell focus:ring-2 focus:ring-offset-2"
                   />
                </label>
                <span className="capitalize font-semibold">
