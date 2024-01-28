@@ -21,7 +21,7 @@ export default function Footer() {
    return (
       <motion.footer
          ref={footRef}
-         className="bg-night text-eggshell flex justify-between p-4 md:p-8 h-52 md:h-72 overflow-hidden"
+         className="bg-night text-eggshell flex justify-between p-4 md:p-8 h-52 md:h-60 overflow-hidden"
          initial={"hidden"}
          animate={isInView ? "visible" : ""}
          transition={{
