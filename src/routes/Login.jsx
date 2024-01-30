@@ -1,15 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function Login() {
-   const [username, setUsername] = useState("");
-   const inputRef = useRef();
+   const mailRef = useRef();
+   const passRef = useRef();
 
    const submitHandler = (e) => {
       e.preventDefault();
-      setUsername(inputRef.current.value);
-      inputRef.current.value = "";
+      mailRef.current.value = "";
+      passRef.current.value = "";
    };
 
    return (
@@ -32,17 +32,31 @@ export default function Login() {
             </div>
             <form onSubmit={submitHandler} className="flex flex-col gap-6">
                <label
-                  htmlFor="username"
+                  htmlFor="email"
                   className="flex flex-col gap-2 text-lg font-semibold uppercase"
                >
-                  <span>username</span>
+                  <span>email</span>
                   <input
-                     type="text"
-                     name="username"
-                     id="username"
+                     type="email"
+                     name="email"
+                     id="email"
                      autoComplete="off"
-                     ref={inputRef}
-                     className="outline-none p-2 bg-periwink text-lg font-semibold text-night rounded-md uppercase focus:ring-eggshell focus:ring-2 focus:ring-offset-2"
+                     ref={mailRef}
+                     className="outline-none p-2 bg-periwink text-lg font-semibold text-night rounded-md focus:ring-eggshell focus:ring-2 focus:ring-offset-2 group"
+                  />
+               </label>
+               <label
+                  htmlFor="password"
+                  className="flex flex-col gap-2 text-lg font-semibold uppercase"
+               >
+                  <span>password</span>
+                  <input
+                     type="password"
+                     name="password"
+                     id="password"
+                     autoComplete="off"
+                     ref={passRef}
+                     className="outline-none p-2 bg-periwink text-lg font-semibold text-night rounded-md focus:ring-eggshell focus:ring-2 focus:ring-offset-2"
                   />
                </label>
                <span className="capitalize font-semibold">

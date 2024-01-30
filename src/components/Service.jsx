@@ -8,7 +8,7 @@ export default function Service() {
    const cardRef = useRef(null);
 
    const animation = {
-      hidden: { opacity: 0, y: 30 },
+      hidden: { opacity: 0, y: 50 },
       visible: { opacity: 1, y: 0 },
    };
 
